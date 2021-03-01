@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from home import views as home_view
 from userauth import views as auth_views
+from user_profile import views as profile_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view.home_view, name='home'),
     path('register', auth_views.signup_view, name='register'),
     path('login', auth_views.login_view, name='login'),
-    path('logout', auth_views.logout_view, name='logout')
+    path('logout', auth_views.logout_view, name='logout'),
+    path('profile', profile_view.profile_view, name='profile')
 ]
