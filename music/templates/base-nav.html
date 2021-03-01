@@ -1,6 +1,13 @@
-{% extends "base.html" %}
-
-{% block maincontent %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</head>
+<body>
 <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand">Navbar</a>
@@ -15,7 +22,7 @@
         </form>
       </div>
 </nav>
-    <div class="container">
-
-    </div>
-{% endblock %}
+    {% block maincontent %}
+    {% endblock %}
+</body>
+</html>
