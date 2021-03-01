@@ -1,25 +1,5 @@
-{% extends "base.html" %}
+{% extends "base-nav.html" %}
 
 {% block maincontent %}
-<nav class="navbar navbar-light bg-light">
-      <div class="container">
-          <div class="brand-and-image">
-              <a class="navbar-brand">Navbar</a>
-              <a href="{% url 'profile' %}"><img width="50" class="circle-profile-image rounded-circle" alt="50x50" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
-              data-holder-rendered="true"></a>
-          </div>
-          <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button style="margin-right: 20px;" class="btn btn-outline-success" type="submit">Search</button>
-                  {% if user.is_authenticated %}
-                  <a href="{% url 'logout' %}" class="btn btn-outline-success" type="submit">Logout</a>
-                  {% else %}
-                  <a href="{% url 'logout' %}" class="btn btn-outline-success" type="submit">Login</a>
-                  {% endif %}
-          </form>
-      </div>
-</nav>
-    <div class="container">
 
-    </div>
 {% endblock %}
