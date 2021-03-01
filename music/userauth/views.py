@@ -31,3 +31,11 @@ def login_view(request):
                 return redirect('login')
 
     return render(request, 'user_auth/custom_login.html')
+
+def logout_view(request):
+
+    if request.user.is_authenticated:
+        logout(request)
+        return redirect('home')
+    else:
+        return redirect('login')
