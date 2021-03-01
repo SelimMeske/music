@@ -1,21 +1,28 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from user_profile.models import UserProfile
+
 
 # Create your views here.
 def signup_view(request):
 
+
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            userprofile = UserProfile(user_name=user.username, description='Hello there, this is the description of yours.', user_fk=user)
+            userprofile.save()
             return redirect('login')
     else:
         form = UserCreationForm()
 
     return render(request, 'user_auth/custom_signup.html')
 
+
 def login_view(request):
+
 
     if request.user.is_authenticated:
         return redirect('home')
@@ -31,6 +38,7 @@ def login_view(request):
                 return redirect('login')
 
     return render(request, 'user_auth/custom_login.html')
+
 
 def logout_view(request):
 
