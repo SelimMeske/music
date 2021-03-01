@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
     {% load static %}
-    <link rel="stylesheet" href="{% url 'bootstrap.css' %}">
-    <script src="{% url 'bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
 </head>
 <body>
-    <h1>Hi from home</h1>
+     <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="container">
+
+    </div>
 </body>
 </html>
