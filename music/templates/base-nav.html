@@ -19,9 +19,8 @@
               {% endif %}
           </div>
           <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button style="margin-right: 10px;" class="btn btn-outline-success" type="submit">Search</button>
                   {% if user.is_authenticated %}
+                  <a href="{% url 'create_song' %}" style="margin-right: 10px;" class="btn btn-outline-success" type="submit">Publish Song</a>
                   <a href="{% url 'logout' %}" class="btn btn-outline-success" type="submit">Logout</a>
                   {% else %}
                   <a style="margin-right: 10px;" href="{% url 'login' %}" class="btn btn-outline-success" type="submit">Login</a>
