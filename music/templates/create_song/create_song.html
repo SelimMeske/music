@@ -1,0 +1,20 @@
+{% extends 'base-nav.html' %}
+
+{% block maincontent %}
+    <form enctype="multipart/form-data" class="container d-flex flex-column justify-content-center align-items-center" action="{% url 'create_song' %}" method="POST">
+        {% csrf_token %}
+        <div style="width: 200px;" class="">
+            <label for="name">Song title</label>
+            {{ form.name }}
+        </div>
+        <div style="width: 200px;" class="">
+            <label for="image">Choose your cover image</label>
+            {{ form.image }}
+        </div>
+        <div style="width: 200px;" class="">
+            <label for="audio">Upload audio</label>
+            {{ form.audio }}
+        </div>
+        <button type="submit">Upload</button>
+    </form>
+{% endblock %}

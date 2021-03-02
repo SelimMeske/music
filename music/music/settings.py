@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'userauth',
     'home',
-    'user_profile'
+    'user_profile',
+    'song',
+    'create_song'
 ]
 
 MIDDLEWARE = [
