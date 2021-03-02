@@ -9,10 +9,11 @@
     <script src="{% static 'js/bootstrap.js' %}"></script>
 </head>
 <body>
+<audio class="main-audio-player" src=""></audio>
 <nav class="navbar navbar-light bg-light">
       <div class="container">
           <div class="brand-and-image">
-              <a class="navbar-brand">Navbar</a>
+              <a href="{% url 'home' %}" class="navbar-brand">Musika</a>
               {% if user.is_authenticated %}
               <a href="{% url 'profile' %}"><img width="50" class="circle-profile-image rounded-circle" alt="50x50" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
               data-holder-rendered="true"></a>
@@ -31,5 +32,6 @@
 </nav>
     {% block maincontent %}
     {% endblock %}
+    <script src="{% static 'js/play-func.js' %}"></script>
 </body>
 </html>
