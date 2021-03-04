@@ -21,11 +21,9 @@
           </div>
           <form class="d-flex">
                   {% if user.is_authenticated %}
-                  {% for user in userinfo %}
-                    {% if user.is_artist %}
-                     <a href="{% url 'create_song' %}" style="margin-right: 10px;" class="btn btn-outline-success" type="submit">Publish Song</a>
-                    {% endif %}
-                  {% endfor %}
+                      {% if userinfo.is_artist %}
+                      <a style="margin-right: 10px;" href="{% url 'create_song' %}" class="btn btn-outline-success" type="submit">Publish Song</a>
+                      {% endif %}
                   <a href="{% url 'logout' %}" class="btn btn-outline-success" type="submit">Logout</a>
                   {% else %}
                   <a style="margin-right: 10px;" href="{% url 'login' %}" class="btn btn-outline-success" type="submit">Login</a>
