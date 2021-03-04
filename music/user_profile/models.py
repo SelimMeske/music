@@ -11,6 +11,7 @@ class UserProfile(models.Model):
     user_name = models.CharField(max_length=500)
     profile_image = models.ImageField(null=True)
     description = models.CharField(max_length=10000)
+    is_artist = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user_name

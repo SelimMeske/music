@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'home',
     'user_profile',
     'song',
-    'create_song'
+    'create_song',
 ]
 
 MIDDLEWARE = [
