@@ -39,7 +39,7 @@ body {
 .fav-btn:hover {
     cursor: pointer;
 }
-.favorited-song {
+.favourite-song {
     background: url('/static/images/lover_red.png');
     background-position: center;
     background-size: cover;

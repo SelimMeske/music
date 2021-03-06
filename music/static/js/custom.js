@@ -12,11 +12,10 @@ for (let i = 0; i < fav_btns.length; i++) {
 
     current_fav_btn = event.target;
 
-    if (current_fav_btn.classList.contains('favorite') && (current_fav_btn.src.includes('lover_red'))) {
-        current_fav_btn.src = '/static/images/lover_black.png';
+    if (current_fav_btn.classList.contains('favourite-song')) {
+        current_fav_btn.classList.remove('favourite-song')
     }else {
-        current_fav_btn.src = '/static/images/lover_red.png';
-        current_fav_btn.classList.add('favorite');
+        current_fav_btn.classList.add('favourite-song');
     }
 
     fetch(request, {
