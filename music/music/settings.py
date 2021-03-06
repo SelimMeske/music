@@ -71,6 +71,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'music.context_processors.user_info'
             ],
+            'libraries': {
+                'object_by_id' : 'music.templatetags.object_by_id'
+            }
         },
     },
 ]
