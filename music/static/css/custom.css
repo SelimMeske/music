@@ -26,3 +26,21 @@ body {
     height: 200px;
     background: white;
 }
+.fav-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    background: url('/static/images/lover_black.png');
+    background-position: center;
+    background-size: cover;
+}
+.fav-btn:hover {
+    cursor: pointer;
+}
+.favorited-song {
+    background: url('/static/images/lover_red.png');
+    background-position: center;
+    background-size: cover;
+}
