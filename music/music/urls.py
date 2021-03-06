@@ -21,6 +21,7 @@ from user_profile import views as profile_view
 from django.conf import settings
 from django.conf.urls.static import static
 from create_song import views as create_song_view
+from favorite_song import views as favorite_song_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +30,6 @@ urlpatterns = [
     path('login', auth_views.login_view, name='login'),
     path('logout', auth_views.logout_view, name='logout'),
     path('profile', profile_view.profile_view, name='profile'),
-    path('new-song/', create_song_view.create_song, name='create_song')
+    path('new-song/', create_song_view.create_song, name='create_song'),
+    path('add-remove-song', favorite_song_view.add_remove_fav, name='add_remove_fav')
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

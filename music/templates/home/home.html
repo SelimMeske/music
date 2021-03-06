@@ -1,7 +1,9 @@
 {% extends "base-nav.html" %}
-
+{% load static %}
+{% load object_by_id %}
 {% block maincontent %}
 <div class="container d-flex flex-row justify-content-between">
+{% csrf_token %}
 {% for song in songs %}
             <div class="card" style="width: 18rem;">
                 <img src="{{ song.image.url }}" class="card-img-top" alt="...">
@@ -10,7 +12,17 @@
                     <small><strong>Song by: </strong>{{ song.artist }}</small><br><br>
                     <a class="btn btn-primary audio-play">Play</a>
                 </div>
+
+                <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}">
+
+                </div>
             </div>
 {% endfor %}
 </div>
+<script >
+
+</script>
+<script src="{% static 'js/custom.js' %}">
+
+</script>
 {% endblock %}
