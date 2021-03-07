@@ -12,10 +12,7 @@
                     <small><strong>Song by: </strong>{{ song.artist }}</small><br><br>
                     <a class="btn btn-primary audio-play">Play</a>
                 </div>
-
-                <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}">
-
-                </div>
+                <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div>
             </div>
 {% endfor %}
 </div>

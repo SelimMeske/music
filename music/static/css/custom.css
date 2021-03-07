@@ -35,6 +35,7 @@ body {
     background: url('/static/images/lover_black.png');
     background-position: center;
     background-size: cover;
+    transition-duration: 0.2s;
 }
 .fav-btn:hover {
     cursor: pointer;
