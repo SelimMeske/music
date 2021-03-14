@@ -11,7 +11,6 @@ class EchoCosnumer(SyncConsumer):
         })
         async_to_sync(self.channel_layer.group_add)("notify", self.channel_name)
 
-
     def websocket_disconnect(self, event):
         print('bye')
 
@@ -20,10 +19,3 @@ class EchoCosnumer(SyncConsumer):
             "type": "websocket.send",
             "text": event['text']
         })
-
-    def connect(self):
-        print('connected')
-        async_to_sync(self.channel_layer.group_add)("test", self.channel_name)
-
-    def disconnect(self, close_code):
-        async_to_sync(self.channel_layer.group_discard)("test", self.channel_name)
