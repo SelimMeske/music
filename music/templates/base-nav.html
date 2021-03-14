@@ -32,9 +32,16 @@
           </form>
       </div>
 </nav>
+{% if messages %}
+    {% for message in messages %}
+
+    {% endfor %}
+{% endif %}
+<div class="custom-messages-box bg-success">Hey</div>
     {% include 'toast.html' %}
     {% block maincontent %}
     {% endblock %}
     <script src="{% static 'js/play-func.js' %}"></script>
+    <script src="{% static 'js/stoc.js' %}"></script>
 </body>
 </html>

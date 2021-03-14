@@ -23,7 +23,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 .idea
-
+.media
+media/
+images/
+audio/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

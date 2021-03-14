@@ -2,8 +2,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from song.models import Song
 from .models import FavoriteSong
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.contrib import messages
 import json
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 
 # Create your views here.
 def add_remove_fav(request):
@@ -11,31 +14,43 @@ def add_remove_fav(request):
     user = request.user
     song_id = json.loads(request.body)['song-id']
 
-    song_is_found = ''
+    if user.is_authenticated:
 
-    try:
-        song_is_found = Song.objects.get(id=song_id)
-        print('song found')
-    except ObjectDoesNotExist:
-        song_is_found = None
-        print('Song is not found')
+        song_is_found = ''
 
-    if song_is_found:
-        song_is_fav = ''
-
+        # try to find the requested song
         try:
-            song_is_fav = FavoriteSong.objects.get(user_fk=user, song_fk=song_is_found)
+            song_is_found = Song.objects.get(id=song_id)
+            print('song found')
         except ObjectDoesNotExist:
-            song_is_fav = None
+            song_is_found = None
+            print('Song is not found')
 
-        if song_is_fav:
-            song_is_fav.delete()
+        # If song is found go ahead
+        if song_is_found:
+            song_is_fav = ''
+
+            # Check if the song is already a favorite of the current user
+            try:
+                song_is_fav = FavoriteSong.objects.get(user_fk=user, song_fk=song_is_found)
+            except ObjectDoesNotExist:
+                song_is_fav = None
+
+            # If the song is already a favorite of the user, remove it from his favorite list, else add it to the fav list
+            if song_is_fav:
+                song_is_fav.delete()
+            else:
+                FavoriteSong.objects.create(user_fk=user, song_fk=song_is_found)
+
+        # If the song is not found inform the user about it
         else:
-            FavoriteSong.objects.create(user_fk=user, song_fk=song_is_found)
+            return JsonResponse({'message':'Shitti'})
+
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)("notify", {"type": "websocket.receive", "text": "i feel like we got it"})
+
+        return JsonResponse({'message': 'Please Sanler.'})
     else:
-        print('error')
-
-    return HttpResponse('<h1>hi</h1>')
-
-
-
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)("test", {"type": "websocket.receive", "text": "i feel like we got it"})
+        return JsonResponse({'message':'Please register.'})
