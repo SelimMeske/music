@@ -2,16 +2,21 @@
 {% load static %}
 {% load object_by_id %}
 {% block maincontent %}
-<div class="container d-flex flex-row justify-content-between">
+<div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between">
 {% csrf_token %}
 {% for song in songs %}
-            <div class="card" style="width: 18rem;">
-                <!-- <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div> -->
+            <div class="card"  id="{{ song.audio.url }}" style="width: 200px;">
+                <!--  -->
                 <!-- <a class="btn btn-primary audio-play">Play</a> -->
-                <img src="{{ song.image.url }}" class="card-img-top" alt="...">
-                <div class="card-body" id="{{ song.audio.url }}">
-                    <h5 class="card-title">{{ song.name }}</h5>
-                    <small><strong>Song by: </strong>{{ song.artist }}</small><br><br>
+                <div class="cover-img-wrap">
+                    <img class="audio-play play-button" src="{% static 'images/play-button.png' %}" alt="">
+                    <img style="z-index: -1; width: 200px; height:170px;" src="{{ song.image.url }}" class="card-img-top">
+                    <div class="black-overlay"></div>
+                    <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div>
+                </div>
+                <div style="color: #6c757d;" class="card-body">
+                    <h5 style="margin-bottom: 0px;" class="card-title">{{ song.name }}</h5>
+                    <small>Song by: {{ song.artist }}</small>
                 </div>
             </div>
 {% endfor %}

@@ -4,6 +4,8 @@ let all_buttons = document.querySelectorAll('.audio-play');
 for (i = 0; i < all_buttons.length; i++) {
     all_buttons[i].addEventListener('click', function(event){
         current_song = event.target;
+        console.log(current_song)
+        console.log(current_song.parentElement)
 
         let current_playing = document.querySelector('.playing');
 
@@ -12,13 +14,12 @@ for (i = 0; i < all_buttons.length; i++) {
             player.pause();
             current_song.classList.remove('playing');
         }else {
-            console.log(current_playing)
             if (current_playing){
                 current_playing.innerHTML = 'Play';
                 current_playing.classList.remove('playing');
             }
 
-            player.src = current_song.parentElement.id;
+            player.src = current_song.parentElement.parentElement.id;
             player.play();
             current_song.innerHTML = 'Stop';
             current_song.classList.add('playing');
