@@ -6,13 +6,13 @@
 {% csrf_token %}
 {% for song in songs %}
             <div class="card" style="width: 18rem;">
+                <!-- <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div> -->
+                <!-- <a class="btn btn-primary audio-play">Play</a> -->
                 <img src="{{ song.image.url }}" class="card-img-top" alt="...">
                 <div class="card-body" id="{{ song.audio.url }}">
                     <h5 class="card-title">{{ song.name }}</h5>
                     <small><strong>Song by: </strong>{{ song.artist }}</small><br><br>
-                    <a class="btn btn-primary audio-play">Play</a>
                 </div>
-                <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div>
             </div>
 {% endfor %}
 </div>
