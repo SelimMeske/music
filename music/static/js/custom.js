@@ -12,12 +12,6 @@ for (let i = 0; i < fav_btns.length; i++) {
 
     current_fav_btn = event.target;
 
-    if (current_fav_btn.classList.contains('favourite-song')) {
-        current_fav_btn.classList.remove('favourite-song')
-    }else {
-        current_fav_btn.classList.add('favourite-song');
-    }
-
     fetch(request, {
         method: 'POST',
         mode: 'same-origin',
@@ -25,9 +19,16 @@ for (let i = 0; i < fav_btns.length; i++) {
             "song-id": current_fav_btn.getAttribute('data-id')
         })
     }).then(function(response){
-        return response.json()
+        if (response.status == 200){
+            if (current_fav_btn.classList.contains('favourite-song')) {
+                    current_fav_btn.classList.remove('favourite-song')
+            }else {
+                current_fav_btn.classList.add('favourite-song');
+            }
+            return response.json();
+        }
     }).then(function(json){
-        console.log(json);
+        notifyControl(json.message);
     });
 });
 }

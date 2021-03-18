@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from song.models import Song
 from favorite_song.models import FavoriteSong
-from channels.layers import get_channel_layer
-from asgiref.sync import async_to_sync
 
 # Create your views here.
 
