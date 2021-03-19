@@ -30,12 +30,14 @@ body {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background: url('/static/images/lover_black.png');
     background-position: center;
     background-size: cover;
-    transition-duration: 0.2s;
+    transition-duration: 0.3s;
+    z-index: 1000;
+    opacity: 0;
 }
 .fav-btn:hover {
     cursor: pointer;
@@ -74,6 +76,9 @@ body {
     left: 50%; /* position the left edge of the element at the middle of the parent */
     transform: translate(-50%, -50%);
     z-index: 99;
+    cursor: pointer;
+    opacity: 0;
+    transition-duration: 0.3s;
 }
 .black-overlay {
     position: absolute;
@@ -83,5 +88,7 @@ body {
     height: 100%;
     z-index: 98;
     background: black;
-    opacity: 0.6;
+    opacity: 0.0;
+    transition-duration: 0.3s;
+    cursor: pointer;
 }
