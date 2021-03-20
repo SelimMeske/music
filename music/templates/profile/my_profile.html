@@ -14,12 +14,56 @@
             </div>
         </div>
     </div>
-    <div class="line"></div>
     <div class="container about-me">
         <p>This is some text.</p>
     </div>
-    <div class="container">
+
+    <div class="my-songs container d-flex flex-wrap">
 
     </div>
+    <script>
+        let songs = {{ ser_songs|safe }};
+        let my_songs_container = document.querySelector('.my-songs');
+        let all_waveforms = [];
+
+        songs = JSON.parse(songs);
+        for(let i = 0; i < songs.length; i++){
+
+            let holder = document.createElement('div');
+            let parent_holder = document.createElement('div');
+            let cover = document.createElement('img');
+
+            cover.classList.add('waveform-cover');
+            cover.src = '/media/' + songs[i].fields.image;
+            holder.style.width = '92%';
+            holder.id = 'waveform'+i
+            holder.classList.add('waveform-container');
+            parent_holder.append(cover);
+            parent_holder.append(holder);
+            parent_holder.classList.add('waveform-container-parent');
+            my_songs_container.append(parent_holder);
+
+            song = songs[i].fields;
+            // Creating a wave for a song
+            var wavesurfer = WaveSurfer.create({
+                container: '#waveform'+i,
+                scrollParent: false,
+                barWidth: 3,
+                barHeight: 1, // the height of the wave
+                barGap: null,
+                height: 50,
+                fillParent: true,
+                responsive: false
+            });
+
+            wavesurfer.load("http://127.0.0.1:8000/media/" + songs[i].fields.audio);
+        };
+
+        for(let o = 0; o < all_waveforms.length; o++){
+            console.log(all_waveforms[o].cover);
+        }
+
+
+    </script>
 </div>
 {% endblock %}
