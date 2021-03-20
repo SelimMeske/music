@@ -33,6 +33,7 @@
             let parent_holder = document.createElement('div');
             let cover = document.createElement('img');
             let play_button = document.createElement('img');
+            let delete_button = document.createElement('img');
             let waveholder_container = document.createElement('div');
             let track_info_name = document.createElement('p');
             let track_info_author = document.createElement('p');
@@ -40,6 +41,11 @@
             let info_container_inner_one = document.createElement('div');
             let info_container_inner_two = document.createElement('div');
 
+
+            delete_button.width = '30';
+            delete_button.src = '/static/images/delete.png';
+            delete_button.classList.add('delete-song');
+            parent_holder.append(delete_button);
             track_info_author.classList.add('author-name');
             info_container.classList.add('info-container');
             info_container_inner_one.classList.add('info-container-inner', 'first-inner-info');
@@ -84,6 +90,7 @@
         };
 
         let play_buttons = document.querySelectorAll('.play-button-my-profile');
+        let all_parent_holders = document.querySelectorAll('.waveform-container-parent');
 
         for(let p=0; p<all_waveforms.length; p++){
             play_buttons[p].addEventListener('click', function(){
@@ -97,6 +104,18 @@
                 });
 
                 all_waveforms[p].playPause();
+            });
+
+            all_parent_holders[p].addEventListener('mouseenter', function(event){
+
+                let current_delete_button = event.target.querySelector('.delete-song');
+                current_delete_button.style.opacity = '1';
+            });
+
+            all_parent_holders[p].addEventListener('mouseleave', function(event){
+
+                let current_delete_button = event.target.querySelector('.delete-song');
+                current_delete_button.style.opacity = '0';
             });
         }
 

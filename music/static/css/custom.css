@@ -108,6 +108,14 @@ body {
     justify-content: flex-start;
     align-items: flex-end;
     margin-bottom: 40px;
+    position: relative;
+}
+.delete-song {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0;
 }
 .my-songs {
     padding: 50px 0px 0px 0px;
