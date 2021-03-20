@@ -103,9 +103,29 @@ body {
     width: 100%;
     display:flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 40px;
 }
 .my-songs {
     padding: 50px 0px 0px 0px;
+}
+.waveholder-info-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.info-container {
+    display: flex;
+}
+.first-inner-info {
+    padding-left: 40px;
+}
+.second-inner-info {
+    padding-left: 20px;
+}
+.info-container-inner p{
+    margin: 0;
+}
+.author-name {
+    font-size: 12px;
 }
