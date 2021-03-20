@@ -25,6 +25,7 @@
         let songs = {{ ser_songs|safe }};
         let my_songs_container = document.querySelector('.my-songs');
         let all_waveforms = [];
+        songs.reverse();
 
         for(let i = 0; i < songs.length; i++){
 
@@ -55,6 +56,7 @@
             cover.src = '/media/' + songs[i].fields.image;
             play_button.src = '/static/images/play-button-profile.png';
             play_button.width = '40';
+            play_button.classList.add('play-button-my-profile');
             holder.style.width = '100%';
             holder.id = 'waveform'+i
             holder.classList.add('waveform-container');
@@ -66,7 +68,6 @@
             my_songs_container.append(parent_holder);
 
             song = songs[i].fields;
-            // Creating a wave for a song
             var wavesurfer = WaveSurfer.create({
                 container: '#waveform'+i,
                 scrollParent: false,
@@ -82,16 +83,22 @@
             all_waveforms.push(wavesurfer);
         };
 
-        let play_me = document.querySelector('.play-from');
+        let play_buttons = document.querySelectorAll('.play-button-my-profile');
 
         for(let p=0; p<all_waveforms.length; p++){
+            play_buttons[p].addEventListener('click', function(){
 
+                all_waveforms[p].on('pause', function() {
+                    play_buttons[p].src = '/static/images/play-button-profile.png';
+                });
+                all_waveforms[p].on('play', function() {
+                    console.log('it is a play');
+                    play_buttons[p].src = '/static/images/pause-button.png';
+                });
+
+                all_waveforms[p].playPause();
+            });
         }
-
-        play_me.addEventListener('click', function(){
-            all_waveforms[0].playPause();
-        });
-
 
     </script>
 </div>
