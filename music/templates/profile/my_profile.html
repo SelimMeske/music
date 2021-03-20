@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="container about-me">
-        <p>This is some text.</p>
+        <p class="play-from">PLAY FROM HERE</p>
     </div>
 
     <div class="my-songs container d-flex flex-wrap">
@@ -26,20 +26,42 @@
         let my_songs_container = document.querySelector('.my-songs');
         let all_waveforms = [];
 
-        songs = JSON.parse(songs);
         for(let i = 0; i < songs.length; i++){
 
             let holder = document.createElement('div');
             let parent_holder = document.createElement('div');
             let cover = document.createElement('img');
+            let play_button = document.createElement('img');
+            let waveholder_container = document.createElement('div');
+            let track_info_name = document.createElement('p');
+            let track_info_author = document.createElement('p');
+            let info_container = document.createElement('div');
+            let info_container_inner_one = document.createElement('div');
+            let info_container_inner_two = document.createElement('div');
 
+            track_info_author.classList.add('author-name');
+            info_container.classList.add('info-container');
+            info_container_inner_one.classList.add('info-container-inner', 'first-inner-info');
+            info_container_inner_two.classList.add('info-container-inner', 'second-inner-info');
+            info_container_inner_two.append(track_info_author);
+            info_container_inner_two.append(track_info_name);
+            info_container_inner_one.append(play_button);
+            info_container.append(info_container_inner_one);
+            info_container.append(info_container_inner_two);
+            track_info_name.innerHTML = songs[i].fields.name;
+            track_info_author.innerHTML = songs[i].fields.artist;
+            waveholder_container.classList.add('waveholder-info-container');
             cover.classList.add('waveform-cover');
             cover.src = '/media/' + songs[i].fields.image;
-            holder.style.width = '92%';
+            play_button.src = '/static/images/play-button-profile.png';
+            play_button.width = '40';
+            holder.style.width = '100%';
             holder.id = 'waveform'+i
             holder.classList.add('waveform-container');
+            waveholder_container.append(info_container);
+            waveholder_container.append(holder);
             parent_holder.append(cover);
-            parent_holder.append(holder);
+            parent_holder.append(waveholder_container);
             parent_holder.classList.add('waveform-container-parent');
             my_songs_container.append(parent_holder);
 
@@ -57,11 +79,18 @@
             });
 
             wavesurfer.load("http://127.0.0.1:8000/media/" + songs[i].fields.audio);
+            all_waveforms.push(wavesurfer);
         };
 
-        for(let o = 0; o < all_waveforms.length; o++){
-            console.log(all_waveforms[o].cover);
+        let play_me = document.querySelector('.play-from');
+
+        for(let p=0; p<all_waveforms.length; p++){
+
         }
+
+        play_me.addEventListener('click', function(){
+            all_waveforms[0].playPause();
+        });
 
 
     </script>

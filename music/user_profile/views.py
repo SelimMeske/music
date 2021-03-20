@@ -11,7 +11,11 @@ def profile_view(request):
     if user.is_authenticated:
         songs = Song.objects.all().filter(artist=user)
         serialized_songs = serialize('json', songs, ensure_ascii=False)
+        converting_to_json = json.loads(serialized_songs)
+        for song in converting_to_json:
+            song['fields']['artist'] = request.user.username
+
     else:
         songs = ''
 
-    return render(request, 'profile/my_profile.html', {'songs': songs, 'ser_songs': json.dumps(serialized_songs)})
+    return render(request, 'profile/my_profile.html', {'songs': songs, 'ser_songs': json.dumps(converting_to_json)})
