@@ -9,8 +9,8 @@ body {
 }
 .background-color {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 98%;
+    height: 200px;
     background: #f2f2f2;
     z-index: -1;
     border-radius: 15px;
@@ -23,7 +23,7 @@ body {
 }
 .about-me {
     width: 70%;
-    height: 200px;
+    height: 70px;
     background: white;
 }
 .fav-btn {
@@ -91,4 +91,21 @@ body {
     opacity: 0.0;
     transition-duration: 0.3s;
     cursor: pointer;
+}
+.waveform-cover{
+    width: 100px;
+    height: 100px;
+}
+.waveform-container{
+    width: 100%;
+}
+.waveform-container-parent {
+    width: 100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.my-songs {
+    padding: 50px 0px 0px 0px;
 }
