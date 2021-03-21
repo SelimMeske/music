@@ -9,10 +9,6 @@ def user_info(request):
     if request.user.is_authenticated:
         user = request.user
         is_user_there = UserProfile.objects.all().filter(user_fk=user)
-        logger.info('This is the user ')
-        logger.error(user.id)
-        logger.info('This is the user info')
-        logger.error(UserProfile.objects.all())
 
         if is_user_there:
             return {'userinfo': is_user_there[0]}
