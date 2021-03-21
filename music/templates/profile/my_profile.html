@@ -85,7 +85,9 @@
                 responsive: false
             });
 
-            wavesurfer.load("http://127.0.0.1:8000/media/" + songs[i].fields.audio);
+            current_url = window.location.protocol + "//" + window.location.host;
+
+            wavesurfer.load(current_url + "/media/" + songs[i].fields.audio);
             all_waveforms.push(wavesurfer);
         };
 
