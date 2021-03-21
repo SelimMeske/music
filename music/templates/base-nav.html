@@ -17,9 +17,10 @@
           <div class="brand-and-image">
               <a href="{% url 'home' %}" class="navbar-brand">Musika</a>
               {% if user.is_authenticated %}
-                  <img width="50" class="circle-profile-image rounded-circle" alt="50x50" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
+                  <a href="{% url 'profile' %}">
+                      <img width="50" class="circle-profile-image rounded-circle" alt="50x50" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
                     data-holder-rendered="true">
-                  <!-- <a href="{% url 'profile' %}"></a> -->
+                  </a>
               {% endif %}
           </div>
           <form class="d-flex">
@@ -48,6 +49,5 @@
     {% endblock %}
     <script src="{% static 'js/play-func.js' %}"></script>
     <script src="{% static 'js/stoc.js' %}"></script>
-    <script src="{% static 'js/history-handler.js' %}"></script>
 </body>
 </html>

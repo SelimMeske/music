@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'm+l(&6!c9!g_z2e%@jbvl$6%=l%(v@*&9xv-qp6)bfcfdt_yj&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['meske.pythonanywhere.com']
 
 
 # Application definition
@@ -78,12 +78,6 @@ TEMPLATES = [
     },
 ]
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-    }
-}
-
 WSGI_APPLICATION = 'music.wsgi.application'
 
 
@@ -92,20 +86,15 @@ WSGI_APPLICATION = 'music.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'music',
-
-        'USER': 'postgres',
-
-        'PASSWORD': '123',
-
-        'HOST': 'localhost',
-
-        'PORT': '5434',
+        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'Meske$music', # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'Meske',
+        'PASSWORD': 'tibor123321',
+        'HOST': 'Meske.mysql.pythonanywhere-services.com', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '', # Set to empty string for default.
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -145,7 +134,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'assets')
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
