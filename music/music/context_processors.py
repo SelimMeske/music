@@ -1,13 +1,19 @@
 from user_profile.models import UserProfile
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 def user_info(request):
 
     if request.user.is_authenticated:
         user = request.user
-        user_info = UserProfile.objects.all().filter(user_fk=user)
+        is_user_there = UserProfile.objects.all().filter(user_fk=user)
+        logger.error('This is the user ' + user)
+        logger.error(is_user_there)
 
-        if user_info:
-            return {'userinfo': user_info[0]}
+        if is_user_there:
+            return {'userinfo': is_user_there[0]}
         else:
             return {'userinfo': ''}
 
