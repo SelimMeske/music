@@ -12,16 +12,18 @@
             </div>
             <div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between flex-wrap">
         {% endif %}
-                <div class="card"  id="{{ song.audio.url }}" style="width: 200px;">
-                    <div class="cover-img-wrap">
-                        <img class="audio-play play-button" src="{% static 'images/play-button.png' %}" alt="">
-                        <img style="z-index: -1; width: 200px; height:200px;" src="{{ song.image.url }}" class="card-img-top">
-                        <div class="black-overlay"></div>
-                        <!-- <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div> -->
-                    </div>
-                    <div style="color: #6c757d;" class="card-body">
-                        <p style="margin-bottom: 0px;" class="card-title">{{ song.name }}</p>
-                        <small>Song by: {{ song.artist }}</small>
+                <div class="card-wrap">
+                    <div class="card"  id="{{ song.audio.url }}" style="width: 200px;">
+                        <div class="cover-img-wrap">
+                            <img class="audio-play play-button" src="{% static 'images/play-button.png' %}" alt="">
+                            <img style="z-index: -1; width: 200px; height:200px;" src="{{ song.image.url }}" class="card-img-top">
+                            <div class="black-overlay"></div>
+                            <!-- <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div> -->
+                        </div>
+                        <div style="color: #6c757d;" class="card-body">
+                            <p style="margin-bottom: 0px;" class="card-title">{{ song.name }}</p>
+                            <small>Song by: {{ song.artist }}</small>
+                        </div>
                     </div>
                 </div>
         {% if foorloop.last %}
