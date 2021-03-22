@@ -38,7 +38,7 @@ for (i = 0; i < all_buttons.length; i++) {
 
             current_url = window.location.protocol + "//" + window.location.host;
 
-            wavesurfer.load(current_url + "/media/" + current_song.parentElement.parentElement.id);
+            wavesurfer.load(current_url + current_song.parentElement.parentElement.id);
 
             // player.src = current_song.parentElement.parentElement.id;
             // player.play();
