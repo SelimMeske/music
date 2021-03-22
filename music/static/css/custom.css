@@ -66,6 +66,7 @@ body {
 }
 .card {
     border: none !important;
+    transition-duration: 1s;
 }
 .card-body {
     padding: 0px !important;
@@ -142,4 +143,8 @@ body {
 }
 .play-button-my-profile {
     cursor: pointer;
+}
+.width-100-custom {
+    width: 100%;
+    order: -1;
 }

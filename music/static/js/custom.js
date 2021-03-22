@@ -43,7 +43,7 @@ for (let o=0; o < img_container.length; o++){
         let fav_button = current_img_container.querySelector('.fav-btn');
         play_button.style.opacity = '1';
         black_overlay.style.opacity = '0.6';
-        fav_button.style.opacity = '1';
+        //fav_button.style.opacity = '1';
     });
 
     img_container[o].addEventListener('mouseleave', function(event){
@@ -53,7 +53,7 @@ for (let o=0; o < img_container.length; o++){
         let fav_button = current_img_container.querySelector('.fav-btn');
         play_button.style.opacity = '0.0';
         black_overlay.style.opacity = '0.0';
-        fav_button.style.opacity = '0.0';
+        //fav_button.style.opacity = '0.0';
     });
 
 }
