@@ -18,7 +18,7 @@ for (i = 0; i < all_buttons.length; i++) {
             if (current_playing){
                 current_playing.innerHTML = 'Play';
                 current_playing.classList.remove('playing');
-                current_song_parent.classList.remove('width-100-custom');
+                current_playing.parentElement.parentElement.parentElement.remove('width-100-custom');
             }
             player.src = current_song.parentElement.parentElement.id;
             player.play();
