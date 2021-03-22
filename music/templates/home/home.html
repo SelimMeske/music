@@ -3,15 +3,14 @@
 {% load object_by_id %}
 {% load calculations %}
 {% block maincontent %}
+
 <div style="padding-top: 50px;" class="container d-flex flex-column justify-content-between flex-wrap">
+{% csrf_token %}
 <div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between flex-wrap">
-    {% csrf_token %}
     {% for song in songs %}
         {% if forloop.counter|calculations:"modulus" == 0 %}
             </div>
             <div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between flex-wrap">
-        {% elif forloop.last %}
-            </div>
         {% endif %}
                 <div class="card"  id="{{ song.audio.url }}" style="width: 200px;">
                     <div class="cover-img-wrap">
@@ -25,6 +24,9 @@
                         <small>Song by: {{ song.artist }}</small>
                     </div>
                 </div>
+        {% if foorloop.last %}
+                </div>
+        {% endif %}
     {% endfor %}
 </div>
 <script src="{% static 'js/custom.js' %}">
