@@ -8,14 +8,15 @@ def create_song(request):
 
     user = request.user
 
-    user_is_artist = True if UserProfile.objects.get(user_fk=user).is_artist else False
+    # user_is_artist = True if UserProfile.objects.get(user_fk=user).is_artist else False
 
-    if not user_is_artist:
+    # if not user_is_artist:
+        # return redirect('home')
+    if not user.is_authenticated:
         return redirect('home')
 
     if request.method == "POST":
         form = CustomUploadForm(request.POST, request.FILES)
-        print(request.FILES)
 
         if form.is_valid():
             post = form.save(commit=False)

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from song.models import Song
 from django.core.serializers import serialize
 import json
@@ -16,6 +16,6 @@ def profile_view(request):
             song['fields']['artist'] = request.user.username
 
     else:
-        songs = ''
+        return redirect('home')
 
     return render(request, 'profile/my_profile.html', {'songs': songs, 'ser_songs': json.dumps(converting_to_json)})
