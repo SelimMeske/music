@@ -26,13 +26,7 @@
           </div>
           <form class="d-flex">
                   {% if user.is_authenticated %}
-                      {% if userinfo.is_artist %}
-                      <a style="margin-right: 10px;" href="{% url 'create_song' %}" class="btn btn-outline-success" type="submit">Publish Song</a>
-                      {% endif %}
-                  <a href="{% url 'logout' %}" class="btn btn-outline-success" type="submit">Logout</a>
-                  {% else %}
-                  <a style="margin-right: 10px;" href="{% url 'login' %}" class="btn btn-outline-success" type="submit">Login</a>
-                  <a href="{% url 'register' %}" class="btn btn-outline-success" type="submit">Register</a>
+                  <a style="margin-right: 10px;" href="{% url 'create_song' %}" class="btn btn-outline-success" type="submit">Publish Song</a>
                   {% endif %}
           </form>
       </div>
