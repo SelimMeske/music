@@ -57,5 +57,3 @@ for (let o=0; o < img_container.length; o++){
     });
 
 }
-console.log('Release branch test.');
-
