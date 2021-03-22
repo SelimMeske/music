@@ -6,7 +6,7 @@
 <div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between flex-wrap">
     {% csrf_token %}
     {% for song in songs %}
-        {% if forloop.counter%6 == 0 %}
+        {% if forloop.counter|calculations:"modulus" == 0 %}
             </div>
             <div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between flex-wrap">
         {% elif forloop.last %}
