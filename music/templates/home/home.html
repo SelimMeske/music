@@ -2,23 +2,29 @@
 {% load static %}
 {% load object_by_id %}
 {% block maincontent %}
-
+<div style="padding-top: 50px;" class="container d-flex flex-column justify-content-between flex-wrap">
 <div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between flex-wrap">
-{% csrf_token %}
-{% for song in songs %}
-            <div class="card"  id="{{ song.audio.url }}" style="width: 200px;">
-                <div class="cover-img-wrap">
-                    <img class="audio-play play-button" src="{% static 'images/play-button.png' %}" alt="">
-                    <img style="z-index: -1; width: 200px; height:200px;" src="{{ song.image.url }}" class="card-img-top">
-                    <div class="black-overlay"></div>
-                    <!-- <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div> -->
-                </div>
-                <div style="color: #6c757d;" class="card-body">
-                    <p style="margin-bottom: 0px;" class="card-title">{{ song.name }}</p>
-                    <small>Song by: {{ song.artist }}</small>
-                </div>
+    {% csrf_token %}
+    {% for song in songs %}
+        {% if forloop.counter%6 == 0 %}
             </div>
-{% endfor %}
+            <div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between flex-wrap">
+        {% elif forloop.last %}
+            </div>
+        {% endif %}
+                <div class="card"  id="{{ song.audio.url }}" style="width: 200px;">
+                    <div class="cover-img-wrap">
+                        <img class="audio-play play-button" src="{% static 'images/play-button.png' %}" alt="">
+                        <img style="z-index: -1; width: 200px; height:200px;" src="{{ song.image.url }}" class="card-img-top">
+                        <div class="black-overlay"></div>
+                        <!-- <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div> -->
+                    </div>
+                    <div style="color: #6c757d;" class="card-body">
+                        <p style="margin-bottom: 0px;" class="card-title">{{ song.name }}</p>
+                        <small>Song by: {{ song.artist }}</small>
+                    </div>
+                </div>
+    {% endfor %}
 </div>
 <script src="{% static 'js/custom.js' %}">
 
