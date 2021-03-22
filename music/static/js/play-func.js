@@ -22,6 +22,9 @@ for (i = 0; i < all_buttons.length; i++) {
                 wavesurfer.playPause();
                 current_playing.parentElement.parentElement.parentElement.classList.remove('width-100-custom');
             }
+
+            current_song_parent.classList.add('width-100-custom');
+
             var wavesurfer = WaveSurfer.create({
                 container: '.width-100-custom',
                 scrollParent: false,
@@ -42,7 +45,6 @@ for (i = 0; i < all_buttons.length; i++) {
             wavesurfer.playPause();
             current_song.innerHTML = 'Stop';
             current_song.classList.add('playing');
-            current_song_parent.classList.add('width-100-custom');
         }
 
     })
