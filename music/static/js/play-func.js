@@ -7,28 +7,24 @@ for (i = 0; i < all_buttons.length; i++) {
         current_song = event.target;
         current_song_parent = current_song.parentElement.parentElement.parentElement;
 
-        if (current_song_parent.classList.contains('width-100-custom')){
-            current_song_parent.classList.remove('width-100-custom');
-        }else{
-            current_song_parent.classList.add('width-100-custom');
-        }
-
         let current_playing = document.querySelector('.playing');
 
         if (current_song.classList.contains('playing')) {
             current_song.innerHTML = 'Play';
             player.pause();
             current_song.classList.remove('playing');
+            current_song_parent.classList.remove('width-100-custom');
         }else {
             if (current_playing){
                 current_playing.innerHTML = 'Play';
                 current_playing.classList.remove('playing');
+                current_song_parent.classList.remove('width-100-custom');
             }
-
             player.src = current_song.parentElement.parentElement.id;
             player.play();
             current_song.innerHTML = 'Stop';
             current_song.classList.add('playing');
+            current_song_parent.classList.add('width-100-custom');
         }
 
     })
