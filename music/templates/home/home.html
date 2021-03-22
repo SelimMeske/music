@@ -2,6 +2,7 @@
 {% load static %}
 {% load object_by_id %}
 {% block maincontent %}
+
 <div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between flex-wrap">
 {% csrf_token %}
 {% for song in songs %}
@@ -10,7 +11,7 @@
                     <img class="audio-play play-button" src="{% static 'images/play-button.png' %}" alt="">
                     <img style="z-index: -1; width: 200px; height:200px;" src="{{ song.image.url }}" class="card-img-top">
                     <div class="black-overlay"></div>
-                    <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div>
+                    <!-- <div data-id="{{ song.id }}" class="{{ song|object_by_id:user }}"></div> -->
                 </div>
                 <div style="color: #6c757d;" class="card-body">
                     <p style="margin-bottom: 0px;" class="card-title">{{ song.name }}</p>
@@ -19,9 +20,6 @@
             </div>
 {% endfor %}
 </div>
-<script >
-
-</script>
 <script src="{% static 'js/custom.js' %}">
 
 </script>
