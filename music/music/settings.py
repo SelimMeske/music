@@ -72,7 +72,8 @@ TEMPLATES = [
                 'music.context_processors.user_info'
             ],
             'libraries': {
-                'object_by_id' : 'music.templatetags.object_by_id'
+                'object_by_id': 'music.templatetags.object_by_id',
+                'calculations': 'music.templatetags.calculations'
             }
         },
     },
