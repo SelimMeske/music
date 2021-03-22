@@ -5,9 +5,13 @@ for (i = 0; i < all_buttons.length; i++) {
     all_buttons[i].addEventListener('click', function(event){
 
         current_song = event.target;
+        current_song_parent = current_song.parentElement.parentElement;
 
-        current_song.parentElement.parentElement.classList.add('.width-100-custom');
-
+        if (current_song_parent.classList.contains('width-100-custom')){
+            current_song_parent.classList.remove('width-100-custom');
+        }else{
+            current_song_parent.classList.add('width-100-custom');
+        }
 
         let current_playing = document.querySelector('.playing');
 
