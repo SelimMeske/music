@@ -12,7 +12,6 @@ for (i = 0; i < all_buttons.length; i++) {
 
         if (current_song.classList.contains('playing')) {
             current_song.innerHTML = 'Play';
-            player.pause();
             current_song.classList.remove('playing');
             wavesurfer.playPause();
             current_song_parent.classList.remove('width-100-custom');
@@ -21,8 +20,11 @@ for (i = 0; i < all_buttons.length; i++) {
                 current_playing.innerHTML = 'Play';
                 current_playing.classList.remove('playing');
                 wavesurfer.playPause();
+                wavesurfer.destroy();
                 current_playing.parentElement.parentElement.parentElement.classList.remove('width-100-custom');
             }
+
+            wavesurfer.destroy();
 
             current_song_parent.classList.add('width-100-custom');
 
@@ -35,7 +37,8 @@ for (i = 0; i < all_buttons.length; i++) {
                 height: 50,
                 fillParent: true,
                 responsive: false,
-                pixelRatio: 1
+                pixelRatio: 1,
+                partialRender: true
             });
 
             current_url = window.location.protocol + "//" + window.location.host;
