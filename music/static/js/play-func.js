@@ -1,5 +1,6 @@
 let player = document.querySelector('.main-audio-player');
 let all_buttons = document.querySelectorAll('.audio-play');
+let wavesurfer;
 
 for (i = 0; i < all_buttons.length; i++) {
     all_buttons[i].addEventListener('click', function(event){
@@ -25,7 +26,7 @@ for (i = 0; i < all_buttons.length; i++) {
 
             current_song_parent.classList.add('width-100-custom');
 
-            var wavesurfer = WaveSurfer.create({
+            wavesurfer = WaveSurfer.create({
                 container: '.width-100-custom',
                 scrollParent: false,
                 barWidth: 3,
@@ -33,7 +34,8 @@ for (i = 0; i < all_buttons.length; i++) {
                 barGap: null,
                 height: 50,
                 fillParent: true,
-                responsive: false
+                responsive: false,
+                pixelRatio: 1
             });
 
             current_url = window.location.protocol + "//" + window.location.host;
