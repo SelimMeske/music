@@ -30,16 +30,15 @@
 
             reader.onload = function(event){
                 let blob = new window.Blob([new Uint8Array(event.target.result)]);
-
-                wavesurfer_init.loadBlob(file);
-
-                wavesurfer_init.exportPCM()
-                .then(function(data){
-                    let final_data = data;
-                    console.log(final_data);
-                });
             };
             reader.readAsArrayBuffer(file);
+            wavesurfer_init.loadBlob(file);
+
+            wavesurfer_init.exportPCM()
+            .then(function(data){
+                 let final_data = data;
+                 console.log(final_data);
+            });
         });
     </script>
 {% endblock %}
