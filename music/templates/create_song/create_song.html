@@ -29,10 +29,9 @@
             let reader = new FileReader();
 
             reader.onload = function(event){
-                let blob = new window.Blob([new Uint8Array(event.target.result)]);
+                wavesurfer_init.loadBlob(reader.result);
             };
             reader.readAsArrayBuffer(file);
-            wavesurfer_init.loadBlob(file);
 
             wavesurfer_init.exportPCM()
             .then(function(data){
