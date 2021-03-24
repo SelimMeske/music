@@ -1,4 +1,4 @@
-from django.forms import ModelForm, FileField
+from django.forms import ModelForm, ClearableFileInput
 from django import forms
 from song.models import Song
 
@@ -12,6 +12,6 @@ class CustomUploadForm(ModelForm):
             'audio'
         )
         widgets = {
-            'audio': FileField(attrs={'onchange': 'onChange()'}),
+            'audio': ClearableFileInput(attrs={'onchange': 'onChange()'}),
         }
         exclude = ('artist',)
