@@ -7,7 +7,7 @@ class Song(models.Model):
     name = models.CharField(max_length=420)
     image = models.ImageField(upload_to='images/')
     audio = models.FileField(upload_to='audio/')
-    audio_waveform_data = models.CharField(max_length=50000)
+    audio_waveform_data = models.TextField(max_length=50000)
     artist = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
