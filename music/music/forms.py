@@ -6,11 +6,11 @@ class CustomUploadForm(ModelForm):
 
     class Meta:
         model = Song
-        fields = [
+        fields = (
             'name',
             'image',
             'audio'
-        ]
+        )
         widgets = {
             'audio': FileField(attrs={'onchange': 'onChange()'}),
         }
