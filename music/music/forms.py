@@ -1,4 +1,4 @@
-from django.forms import ModelForm, ClearableFileInput
+from django.forms import ModelForm, ClearableFileInput, HiddenInput
 from django import forms
 from song.models import Song
 
@@ -9,6 +9,10 @@ class CustomUploadForm(ModelForm):
         fields = (
             'name',
             'image',
-            'audio'
+            'audio',
+            'audio_waveform_data'
         )
+        widgets = {
+            'audio_waveform_data': HiddenInput(),
+        }
         exclude = ('artist',)
