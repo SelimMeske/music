@@ -16,8 +16,27 @@
             {{ form.audio }}
         </div>
         <button type="submit">Upload</button>
+        <div style="width: 400px;" class="surfer"></div>
     </form>
     <script>
+        let wavesurfer = new WaveSurfer.create({container: ".surfer"});
 
+        function on_change(){
+            let file = document.querySelector("input[name='audio']").files[0];
+            let reader = new FileReader();
+
+            reader.onload = function(event){
+                let blob = new window.Blob([new Uint8Array(event.target.result)]);
+
+                wavesurfer.loadBlob(file);
+            };
+            reader.readAsArrayBuffer(file);
+
+            wavesurfer.exportPCM()
+            .then(function(data){
+                let data = data;
+                console.log(data);
+            });
+        }
     </script>
 {% endblock %}
