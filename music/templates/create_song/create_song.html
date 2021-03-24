@@ -35,12 +35,14 @@
             reader.readAsArrayBuffer(file);
 
             wavesurfer_init.loadBlob(file);
-
-            wavesurfer_init.exportPCM()
-            .then(function(data){
-                 let final_data = data;
-                 console.log(final_data);
+            wavesurfer_init.on('ready', function(){
+                wavesurfer_init.exportPCM()
+                .then(function(data){
+                     let final_data = data;
+                     console.log(final_data);
+                });
             });
+
         });
     </script>
 {% endblock %}
