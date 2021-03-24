@@ -19,7 +19,7 @@
         <div style="width: 400px;" class="surfer"></div>
     </form>
     <script>
-        let wavesurfer = new WaveSurfer.create({container: ".surfer"});
+        let wavesurfer_init = new WaveSurfer.create({container: ".surfer"});
 
         let audio_input = document.querySelector("input[name='audio']");
 
@@ -31,16 +31,15 @@
             reader.onload = function(event){
                 let blob = new window.Blob([new Uint8Array(event.target.result)]);
 
-                wavesurfer.loadBlob(file);
+                wavesurfer_init.loadBlob(file);
+
+                wavesurfer_init.exportPCM()
+                .then(function(data){
+                    let final_data = data;
+                    console.log(final_data);
+                });
             };
             reader.readAsArrayBuffer(file);
-
-            wavesurfer.exportPCM()
-            .then(function(data){
-                let final_data = data;
-                console.log(final_data);
-            });
-
         });
     </script>
 {% endblock %}
