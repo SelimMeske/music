@@ -24,7 +24,9 @@ for (i = 0; i < all_buttons.length; i++) {
                 current_playing.parentElement.parentElement.parentElement.classList.remove('width-100-custom');
             }
 
-            wavesurfer.destroy();
+            if(wavesurfer){
+                wavesurfer.destroy();
+            }
 
             current_song_parent.classList.add('width-100-custom');
 
