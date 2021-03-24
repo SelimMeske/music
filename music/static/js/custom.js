@@ -57,7 +57,3 @@ for (let o=0; o < img_container.length; o++){
     });
 
 }
-
-function on_change(){
-
-}
