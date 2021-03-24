@@ -10,9 +10,9 @@ class CustomUploadForm(ModelForm):
             'name',
             'image',
             'audio',
-            'audio_waveform_data'
+            # 'audio_waveform_data'
         )
-        widgets = {
-            'audio_waveform_data': Textarea(),
-        }
+        # widgets = {
+        #     'audio_waveform_data': Textarea(),
+        # }
         exclude = ('artist',)
