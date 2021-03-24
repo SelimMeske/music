@@ -12,6 +12,6 @@ class CustomUploadForm(ModelForm):
             'audio'
         ]
         widgets = {
-            'audio': FileField(attrs={'onchange': 'onChange()'})
+            'audio': FileField(attrs={'onchange': 'onChange()'}),
         }
         exclude = ('artist',)
