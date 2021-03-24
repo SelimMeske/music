@@ -11,7 +11,4 @@ class CustomUploadForm(ModelForm):
             'image',
             'audio'
         )
-        widgets = {
-            'audio': ClearableFileInput(attrs={'onchange': 'on_change()'}),
-        }
         exclude = ('artist',)
