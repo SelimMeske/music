@@ -36,7 +36,7 @@
 
             wavesurfer_init.loadBlob(file);
             wavesurfer_init.on('ready', function(){
-                wavesurfer_init.exportPCM({noWindow: true})
+                wavesurfer_init.exportPCM(1024, 10000, true, 0)
                 .then(function(data){
                      let final_data = data;
                      console.log(final_data);
