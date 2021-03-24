@@ -28,10 +28,13 @@
             let file = document.querySelector("input[name='audio']").files[0];
             let reader = new FileReader();
 
-            reader.onload = function(event){
-                wavesurfer_init.loadBlob(reader.result);
+            reader.onload = function() {
+                callback(reader.result);
             };
+
             reader.readAsArrayBuffer(file);
+
+            wavesurfer_init.loadBlob(file);
 
             wavesurfer_init.exportPCM()
             .then(function(data){
