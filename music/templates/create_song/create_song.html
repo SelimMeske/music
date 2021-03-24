@@ -29,7 +29,7 @@
             let reader = new FileReader();
 
             reader.onload = function() {
-                callback(reader.result);
+                console.log(reader.result);
             };
 
             reader.readAsArrayBuffer(file);
