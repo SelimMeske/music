@@ -21,7 +21,10 @@
     <script>
         let wavesurfer = new WaveSurfer.create({container: ".surfer"});
 
-        function on_change(){
+        let audio_input = document.querySelector("input[name='audio']");
+
+        audio_input.addEventListener('change', function(){
+
             let file = document.querySelector("input[name='audio']").files[0];
             let reader = new FileReader();
 
@@ -34,9 +37,10 @@
 
             wavesurfer.exportPCM()
             .then(function(data){
-                let data = data;
-                console.log(data);
+                let final_data = data;
+                console.log(final_data);
             });
-        }
+
+        });
     </script>
 {% endblock %}
