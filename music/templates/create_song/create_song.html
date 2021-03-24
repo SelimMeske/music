@@ -29,14 +29,14 @@
             let reader = new FileReader();
 
             reader.onload = function() {
-                console.log(reader.result);
+                reader.result;
             };
 
             reader.readAsArrayBuffer(file);
 
             wavesurfer_init.loadBlob(file);
             wavesurfer_init.on('ready', function(){
-                wavesurfer_init.exportPCM()
+                wavesurfer_init.exportPCM({noWindow: true})
                 .then(function(data){
                      let final_data = data;
                      console.log(final_data);
