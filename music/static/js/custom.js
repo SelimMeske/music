@@ -1,6 +1,10 @@
 let fav_btns = document.querySelectorAll('.fav-btn');
 try {
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    const request = new Request(
+    'add-remove-song',
+        {headers: {'X-CSRFToken': csrftoken}}
+    );
 }
 catch(err){
     const csrftoken = null;
@@ -8,10 +12,7 @@ catch(err){
 
 let img_container = document.querySelectorAll('.cover-img-wrap');
 
-const request = new Request(
-    'add-remove-song',
-    {headers: {'X-CSRFToken': csrftoken}}
-);
+
 
 for (let i = 0; i < fav_btns.length; i++) {
 
