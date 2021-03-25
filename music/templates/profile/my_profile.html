@@ -73,7 +73,7 @@
             parent_holder.append(waveholder_container);
             parent_holder.classList.add('waveform-container-parent');
             my_songs_container.append(parent_holder);
-            delete_button.id = songs[i].fields.id;
+            delete_button.id = songs[i].pk;
 
             song = songs[i].fields;
             var wavesurfer = WaveSurfer.create({
@@ -137,7 +137,7 @@
                     mode: 'same-origin',
                     body: JSON.stringify({
                         "song-id": song_to_delete
-                })
+                    })
                 }).then(function(response){
                     if (response.status == 200){
                         return response.json();
