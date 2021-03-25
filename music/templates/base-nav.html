@@ -12,6 +12,9 @@
     <script src="{% static 'js/bootstrap.js' %}"></script>
 </head>
 <body>
+{% if user.is_authenticated %}
+    {% csrf_token %}
+{% endif %}
 <audio class="main-audio-player" src=""></audio>
 <nav class="navbar navbar-light bg-light">
       <div class="container">
