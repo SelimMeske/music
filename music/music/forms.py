@@ -9,7 +9,10 @@ class CustomUploadForm(ModelForm):
         fields = (
             'name',
             'image',
-            'audio'
+            'audio',
+            'audio_data'
         )
-
+        widgets = {
+            'audio_data': Textarea()
+        }
         exclude = ('artist',)
