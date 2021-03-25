@@ -32,5 +32,5 @@ urlpatterns = [
     path('profile', profile_view.profile_view, name='profile'),
     path('new-song/', create_song_view.create_song, name='create_song'),
     path('add-remove-song', favorite_song_view.add_remove_fav, name='add_remove_fav'),
-    path('delete-song', create_song_view.delte_song, name='delete_song')
+    path('delete-song', create_song_view.delete_song, name='delete_song')
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
