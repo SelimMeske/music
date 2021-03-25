@@ -7,6 +7,7 @@ for (i = 0; i < all_buttons.length; i++) {
 
         current_song = event.target;
         current_song_parent = current_song.parentElement.parentElement.parentElement;
+        let audio_data = current_song_parent = current_song.parentElement.parentElement.querySelector('textarea').value;
 
         let current_playing = document.querySelector('.playing');
 
@@ -45,7 +46,7 @@ for (i = 0; i < all_buttons.length; i++) {
 
             current_url = window.location.protocol + "//" + window.location.host;
 
-            wavesurfer.load(current_url + current_song.parentElement.parentElement.id);
+            wavesurfer.load(current_url + current_song.parentElement.parentElement.id, audio_data);
 
             // player.src = current_song.parentElement.parentElement.id;
             // player.play();

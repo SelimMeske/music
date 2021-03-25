@@ -23,6 +23,7 @@
                             <p style="margin-bottom: 0px;" class="card-title">{{ song.name }}</p>
                             <small>Song by: {{ song.artist }}</small>
                         </div>
+                        <textarea style="display:none;">{{ song.audio_data }}</textarea>
                     </div>
                 </div>
         {% if foorloop.last %}
