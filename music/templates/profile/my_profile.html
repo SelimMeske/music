@@ -22,6 +22,7 @@
 
     </div>
     <script>
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
         let songs = {{ ser_songs|safe }};
         let my_songs_container = document.querySelector('.my-songs');
         let all_waveforms = [];
@@ -72,6 +73,7 @@
             parent_holder.append(waveholder_container);
             parent_holder.classList.add('waveform-container-parent');
             my_songs_container.append(parent_holder);
+            delete_button.id = songs[i].fields.id;
 
             song = songs[i].fields;
             var wavesurfer = WaveSurfer.create({
@@ -118,6 +120,31 @@
 
                 let current_delete_button = event.target.querySelector('.delete-song');
                 current_delete_button.style.opacity = '0';
+            });
+
+            let delete_song_button = document.querySelectorAll('.delete-song');
+            delete_song_button[p].addEventListener('click', function(event){
+                let delete_song_parent = event.target.parentElement;
+                let song_to_delete = event.target.id;
+
+                const request = new Request(
+                    'delete-song',
+                    {headers: {'X-CSRFToken': csrftoken}}
+                );
+
+                fetch(request, {
+                    method: 'POST',
+                    mode: 'same-origin',
+                    body: JSON.stringify({
+                        "song-id": song_to_delete
+                })
+                }).then(function(response){
+                    if (response.status == 200){
+                        return response.json();
+                    }
+                }).then(function(json){
+                    notifyControl(json.message);
+                });
             });
         }
 
