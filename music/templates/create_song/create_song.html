@@ -15,9 +15,9 @@
             <label for="audio">Upload audio</label>
             {{ form.audio }}
         </div>
-        <!--<div style="width: 200px;" class="">
-            {{ form.audio_waveform_data }}
-        </div>-->
+        <div style="width: 200px;" class="">
+            {{ form.audio_data }}
+        </div>
         <button type="submit">Upload</button>
         <div style="width: 400px;" class="surfer"></div>
     </form>
@@ -25,6 +25,7 @@
         let wavesurfer_init = new WaveSurfer.create({container: ".surfer"});
 
         let audio_input = document.querySelector("input[name='audio']");
+        let audio_data = document.querySelector("input[name='audio_data']");
 
         audio_input.addEventListener('change', function(){
 
@@ -42,6 +43,7 @@
                 wavesurfer_init.exportPCM(1024, 10000, true, 0)
                 .then(function(data){
                      let final_data = data;
+                     audio_data.value = final_data;
                 });
             });
 
