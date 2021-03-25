@@ -1,5 +1,11 @@
 let fav_btns = document.querySelectorAll('.fav-btn');
-const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+try {
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+}
+catch(err){
+    const csrftoken = null;
+}
+
 let img_container = document.querySelectorAll('.cover-img-wrap');
 
 const request = new Request(
