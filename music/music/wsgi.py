@@ -14,6 +14,6 @@ from django.core.wsgi import get_wsgi_application
 project_folder = os.path.expanduser('~/music')
 load_dotenv(os.path.join(project_folder, '.env'))
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'music.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.base')
 
 application = get_wsgi_application()
