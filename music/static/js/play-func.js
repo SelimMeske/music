@@ -7,7 +7,7 @@ for (i = 0; i < all_buttons.length; i++) {
 
         let current_song = event.target;
         let current_song_parent = current_song.parentElement.parentElement.parentElement;
-        let audio_data = current_song_parent = current_song.parentElement.parentElement.querySelector('textarea').value;
+        let audio_data = current_song.parentElement.parentElement.querySelector('textarea').value;
 
         let current_playing = document.querySelector('.playing');
 
