@@ -11,7 +11,7 @@ for (i = 0; i < all_buttons.length; i++) {
 
         let current_playing = document.querySelector('.playing');
 
-        let audio_data = audio_data.replace('[', '').replace(']', '').split(",");
+        audio_data = audio_data.replace('[', '').replace(']', '').split(",");
         let intlist = audio_data.map(x=>+x);
 
         if (current_song.classList.contains('playing')) {
@@ -50,7 +50,7 @@ for (i = 0; i < all_buttons.length; i++) {
 
             current_url = window.location.protocol + "//" + window.location.host;
 
-            wavesurfer.load(current_url + current_song.parentElement.parentElement.id, audio_data);
+            wavesurfer.load(current_url + current_song.parentElement.parentElement.id, intlist);
 
             // player.src = current_song.parentElement.parentElement.id;
             // player.play();
