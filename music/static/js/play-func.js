@@ -5,8 +5,8 @@ let wavesurfer;
 for (i = 0; i < all_buttons.length; i++) {
     all_buttons[i].addEventListener('click', function(event){
 
-        current_song = event.target;
-        current_song_parent = current_song.parentElement.parentElement.parentElement;
+        let current_song = event.target;
+        let current_song_parent = current_song.parentElement.parentElement.parentElement;
         let audio_data = current_song_parent = current_song.parentElement.parentElement.querySelector('textarea').value;
 
         let current_playing = document.querySelector('.playing');
