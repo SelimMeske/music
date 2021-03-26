@@ -5,6 +5,8 @@ DATABASES = {
         'USER': os.getenv('__DB_USER'),
         'PASSWORD': os.getenv('__DB_PW'),
         'HOST': 'Meske.mysql.pythonanywhere-services.com',
+
+
         'PORT': '',
     }
 }
