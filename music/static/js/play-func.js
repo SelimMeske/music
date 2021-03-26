@@ -11,6 +11,9 @@ for (i = 0; i < all_buttons.length; i++) {
 
         let current_playing = document.querySelector('.playing');
 
+        let audio_data = audio_data.replace('[', '').replace(']', '').split(",");
+        let intlist = audio_data.map(x=>+x);
+
         if (current_song.classList.contains('playing')) {
             current_song.innerHTML = 'Play';
             current_song.classList.remove('playing');
@@ -41,7 +44,8 @@ for (i = 0; i < all_buttons.length; i++) {
                 fillParent: true,
                 responsive: false,
                 pixelRatio: 1,
-                partialRender: true
+                partialRender: true,
+                backend: 'MediaElement'
             });
 
             current_url = window.location.protocol + "//" + window.location.host;
