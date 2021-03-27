@@ -1,3 +1,7 @@
+import os
+from .base import BASE_DIR
+
+SECRET_KEY = 'secret122312'
 DEBUG = True
 ALLOWED_HOSTS = []
 CACHES = {
@@ -16,5 +20,5 @@ DATABASES = {
     }
 }
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+   os.path.join(BASE_DIR, 'static')
 ]

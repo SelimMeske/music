@@ -1,3 +1,11 @@
+import os
+from .base import BASE_DIR
+
+SECRET_KEY = os.getenv("__SECRET_KEY")
+
+DEBUG = False
+ALLOWED_HOSTS = ['meske.pythonanywhere.com']
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
