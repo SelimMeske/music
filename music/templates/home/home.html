@@ -11,9 +11,9 @@
             </div>
             <div style="padding-top: 50px;" class="container d-flex flex-row justify-content-between flex-wrap">
         {% endif %}
-                <div class="card-wrap">
+                <div class="card-wrap d-flex">
                     <div class="card"  id="{{ song.audio.url }}" style="width: 200px;">
-                        <div class="cover-img-wrap">
+                        <div class="cover-img-wrap" style="width: 200px;">
                             <img class="audio-play play-button" src="{% static 'images/play-button.png' %}" alt="">
                             <img style="z-index: -1; width: 200px; height:200px;" src="{{ song.image.url }}" class="card-img-top">
                             <div class="black-overlay"></div>
@@ -30,6 +30,11 @@
                 </div>
         {% endif %}
     {% endfor %}
+</div>
+<div class="player-wrapper-fixed d-flex justify-content-center w-100 fixed-bottom">
+    <div class="d-flex w-75 h-100" style="background: red;">
+
+    </div>
 </div>
 <script src="{% static 'js/custom.js' %}">
 

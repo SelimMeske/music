@@ -148,3 +148,7 @@ body {
     width: 100% !important;
     order: -1;
 }
+.player-wrapper-fixed {
+    height: 100px;
+    background: gray;
+}

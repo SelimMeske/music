@@ -10,5 +10,3 @@ function notifyControl(message){
 function removeInfoBox(elem) {
    setTimeout(function() {elem.remove();}, 4000);
 }
-
-notifyControl('Hello there');
