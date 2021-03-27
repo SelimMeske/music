@@ -30,8 +30,7 @@ INSTALLED_APPS = [
     'user_profile',
     'song',
     'create_song',
-    'favorite_song',
-    'fontawesome-free'
+    'favorite_song'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
