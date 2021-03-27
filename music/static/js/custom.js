@@ -12,8 +12,6 @@ catch(err){
 
 let img_container = document.querySelectorAll('.cover-img-wrap');
 
-
-
 for (let i = 0; i < fav_btns.length; i++) {
 
     fav_btns[i].addEventListener('click', function(event){
