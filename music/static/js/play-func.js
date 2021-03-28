@@ -36,6 +36,7 @@ for (i = 0; i < all_buttons.length; i++) {
 
         // Show player on first play
         let init_call = document.querySelector('.init-call');
+        show_hide_button.classList.remove('d-none');
 
         if (init_call){
             init_call.classList.remove('init-call');

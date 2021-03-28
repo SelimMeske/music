@@ -62,3 +62,13 @@ for (let o=0; o < img_container.length; o++){
     });
 
 }
+
+// Show hide player when already initialized
+
+let show_hide_button = document.querySelector('.show-hide-player');
+let player_wrap = document.querySelector('.player-wrapper-fixed');
+
+show_hide_button.addEventListener('click', function() {
+    player_wrap.classList.toggle('show-hide');
+    show_hide_button.classList.toggle('button-rotate');
+});

@@ -39,7 +39,10 @@
                 <img class="btn-icon" width="16" src="{% static 'images/play-button-ico.png' %}">Play
             </button>
         </div>
-        <div class="d-flex w-100 h-50">
+        <div class="d-flex w-100 h-50 position-relative">
+            <div style="width: 40px; height: 40px;" class="d-none d-flex justify-content-center align-items-center show-hide-player rounded-circle">
+                <img width="30" src="{% static 'images/show-hide.png' %}" alt="">
+            </div>
             <div class="container">
                 <div class="w-100 visual-audio"></div>
             </div>
