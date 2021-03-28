@@ -4,8 +4,6 @@ let audio_play_single = document.querySelector('.audio-play-single');
 let audio_pause_single = document.querySelector('.audio-pause-single');
 let audio_play_pause_single = document.querySelector('.audio-play-pause-single');
 let single_button_img_source = audio_play_pause_single.querySelector('img');
-let current_playing = document.querySelector('.playing');
-let current_paused = document.querySelector('.paused');
 let wavesurfer;
 let blocked = false;
 
@@ -34,6 +32,9 @@ audio_play_pause_single.addEventListener('click', function(){
 for (i = 0; i < all_buttons.length; i++) {
     all_buttons[i].addEventListener('click', function(event){
 
+        let current_paused = document.querySelector('.paused');
+        let current_playing = document.querySelector('.playing');
+
         // Show player on first play
         let init_call = document.querySelector('.init-call');
         show_hide_button.classList.remove('d-none');
@@ -57,15 +58,13 @@ for (i = 0; i < all_buttons.length; i++) {
             wavesurfer.playPause();
             current_song.classList.remove('playing');
             current_song.classList.add('paused');
-        }else {
-            if (current_playing){
-                current_playing.classList.remove('playing');
-                wavesurfer.playPause();
-            }
-            else if(current_paused){
-                current_paused.classList.remove('paused');
-                wavesurfer.playPause();
-            }
+        }
+        else if(current_song.classList.contains('paused')){
+            wavesurfer.playPause();
+            current_song.classList.remove('paused');
+            current_song.classList.add('playing');
+        }
+        else {
 
             wavesurfer.destroy();
 
@@ -90,14 +89,22 @@ for (i = 0; i < all_buttons.length; i++) {
 
             wavesurfer.load(current_url + current_song.parentElement.parentElement.id, intlist);
 
-            wavesurfer.playPause();
+            if (current_playing){
+                current_playing.classList.remove('playing');
+                wavesurfer.playPause();
+            }
+            else if(current_paused){
+                current_paused.classList.remove('paused');
+                wavesurfer.playPause();
+            }else{
+                wavesurfer.playPause();
+            }
+
             wavesurfer.on('play', function(){
                 single_button_img_source.src = '/static/images/pause-button-ico.png';
-                console.log('bye')
             });
             wavesurfer.on('pause', function(){
                 single_button_img_source.src = '/static/images/play-button-ico.png';
-                console.log('hi');
             });
             current_song.classList.add('playing');
         }
@@ -106,7 +113,7 @@ for (i = 0; i < all_buttons.length; i++) {
 
         setTimeout(function(){
             blocked = false;
-        }, 600);
+        }, 100);
     })
 }
 
