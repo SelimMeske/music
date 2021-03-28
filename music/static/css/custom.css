@@ -150,6 +150,9 @@ body {
 }
 .player-wrapper-fixed {
     height: 100px;
+    position: fixed;
+    bottom: 10px;
+    left: 0;
 }
 .btn-icon {
     margin-right: 8px;

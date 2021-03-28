@@ -1,5 +1,11 @@
 let player = document.querySelector('.main-audio-player');
 let all_buttons = document.querySelectorAll('.audio-play');
+let audio_play_single = document.querySelector('.audio-play-single');
+let audio_pause_single = document.querySelector('.audio-pause-single');
+let audio_play_pause_single = document.querySelector('.audio-play-pause-single');
+let single_button_img_source = audio_play_pause_single.querySelector('img');
+let current_playing = document.querySelector('.playing');
+let current_paused = document.querySelector('.paused');
 let wavesurfer;
 let blocked = false;
 wavesurfer = WaveSurfer.create({
@@ -19,9 +25,13 @@ wavesurfer = WaveSurfer.create({
                 backend: 'MediaElement'
             });
 
+
+audio_play_pause_single.addEventListener('click', function(){
+       wavesurfer.playPause();
+});
+
 for (i = 0; i < all_buttons.length; i++) {
     all_buttons[i].addEventListener('click', function(event){
-
         if (blocked){
             return;
         }
@@ -29,9 +39,6 @@ for (i = 0; i < all_buttons.length; i++) {
         let current_song = event.target;
         let current_song_parent = current_song.parentElement.parentElement.parentElement;
         let audio_data = current_song.parentElement.parentElement.querySelector('textarea').value;
-
-        let current_playing = document.querySelector('.playing');
-        let current_paused = document.querySelector('.paused');
 
         audio_data = audio_data.replace('[', '').replace(']', '').split(",");
         let intlist = audio_data.map(x=>+x);
@@ -73,7 +80,17 @@ for (i = 0; i < all_buttons.length; i++) {
 
             wavesurfer.load(current_url + current_song.parentElement.parentElement.id, intlist);
 
+
+
             wavesurfer.playPause();
+            wavesurfer.on('play', function(){
+                single_button_img_source.src = '/static/images/pause-button-ico.png';
+                console.log('bye')
+            });
+            wavesurfer.on('pause', function(){
+                single_button_img_source.src = '/static/images/play-button-ico.png';
+                console.log('hi');
+            });
             current_song.classList.add('playing');
         }
 
