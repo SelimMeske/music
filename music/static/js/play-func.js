@@ -8,6 +8,7 @@ let current_playing = document.querySelector('.playing');
 let current_paused = document.querySelector('.paused');
 let wavesurfer;
 let blocked = false;
+
 wavesurfer = WaveSurfer.create({
                 container: '.visual-audio',
                 scrollParent: false,
@@ -32,6 +33,14 @@ audio_play_pause_single.addEventListener('click', function(){
 
 for (i = 0; i < all_buttons.length; i++) {
     all_buttons[i].addEventListener('click', function(event){
+
+        // Show player on first play
+        let init_call = document.querySelector('.init-call');
+
+        if (init_call){
+            init_call.classList.remove('init-call');
+        }
+
         if (blocked){
             return;
         }
@@ -79,8 +88,6 @@ for (i = 0; i < all_buttons.length; i++) {
             current_url = window.location.protocol + "//" + window.location.host;
 
             wavesurfer.load(current_url + current_song.parentElement.parentElement.id, intlist);
-
-
 
             wavesurfer.playPause();
             wavesurfer.on('play', function(){

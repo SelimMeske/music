@@ -153,7 +153,11 @@ body {
     position: fixed;
     bottom: 10px;
     left: 0;
+    transition-duration: 1s;
 }
 .btn-icon {
     margin-right: 8px;
+}
+.init-call {
+    bottom: -100px;
 }
