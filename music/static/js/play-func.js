@@ -52,7 +52,7 @@ for (i = 0; i < all_buttons.length; i++) {
         audio_data = audio_data.replace('[', '').replace(']', '').split(",");
         let intlist = audio_data.map(x=>+x);
 
-        if (current_song.classList.contains('playing') || current_song.classList.contains('paused')) {
+        if (current_song.classList.contains('playing')) {
             wavesurfer.playPause();
             current_song.classList.remove('playing');
             current_song.classList.add('paused');
