@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'user_profile',
     'song',
     'create_song',
-    'favorite_song'
+    'favorite_song',
+    'blog'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
