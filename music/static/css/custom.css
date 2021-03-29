@@ -175,3 +175,7 @@ body {
 .button-rotate {
     transform: rotate(180deg);
 }
+.menu-nav-item {
+    margin-right: 30px;
+    text-decoration: none;
+}
