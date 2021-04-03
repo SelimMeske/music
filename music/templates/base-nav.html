@@ -12,6 +12,7 @@
     <script src="{% static 'js/bootstrap.js' %}"></script>
 </head>
 <body>
+{% include "blog/blog-post.html" %}
 {% if user.is_authenticated %}
     {% csrf_token %}
 {% endif %}
