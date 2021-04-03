@@ -72,3 +72,21 @@ show_hide_button.addEventListener('click', function() {
     player_wrap.classList.toggle('show-hide');
     show_hide_button.classList.toggle('button-rotate');
 });
+
+// Blog post back button
+
+let back_button_blog = document.querySelector('.blog-back-button');
+let blog_post_page = document.querySelector('.blog-post');
+
+if (back_button_blog){
+    back_button_blog.addEventListener('click', function(){
+        blog_post_page.classList.toggle('open-close-blog');
+    });
+}
+
+// Blog post nav button
+
+let nav_blog_show_button = document.querySelector('.blog-nav-link');
+nav_blog_show_button.addEventListener('click', function(){
+    blog_post_page.classList.toggle('open-close-blog');
+});

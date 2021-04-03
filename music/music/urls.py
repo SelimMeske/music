@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 from create_song import views as create_song_view
 from favorite_song import views as favorite_song_view
 from blog import views as blog_views
+from create_post import views as create_post
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,5 +35,6 @@ urlpatterns = [
     path('new-song/', create_song_view.create_song, name='create_song'),
     path('add-remove-song', favorite_song_view.add_remove_fav, name='add_remove_fav'),
     path('delete-song', create_song_view.delete_song, name='delete_song'),
-    path('blog-post', blog_views.blog_post, name='blog_post')
+    path('blog-post', blog_views.blog_post, name='blog_post'),
+    path('create-post', create_post.create_post, name='create_post')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

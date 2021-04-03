@@ -185,4 +185,13 @@ body {
     height: 100vh;
     z-index: 1000;
     background: green;
+    transition-duration: 0.5s;
+    opacity: 1;
+}
+.blog-back-button {
+    pointer: cursor;
+}
+.open-close-blog{
+    left: -100%;
+    opacity: 0;
 }
