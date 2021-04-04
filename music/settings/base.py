@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'song',
     'create_song',
     'favorite_song',
-    'blog'
+    'blog',
+    'tinymce'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
