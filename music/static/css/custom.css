@@ -189,9 +189,12 @@ body {
     opacity: 1;
 }
 .blog-back-button {
-    pointer: cursor;
+    cursor: pointer;
 }
 .open-close-blog{
     left: -100%;
     opacity: 0;
+}
+.post-submit-form > *{
+    margin-bottom: 20px;
 }

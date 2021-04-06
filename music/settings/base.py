@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'create_song',
     'favorite_song',
     'blog',
-    'tinymce'
+    'ckeditor'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

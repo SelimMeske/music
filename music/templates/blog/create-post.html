@@ -1,0 +1,16 @@
+{% include 'base-nav.html' %}
+<div class="container">
+    <h1>Welcome {{ user|title }}</h1>
+</div>
+<div class="container">
+    <form action='{% url "create_post" %}'>
+        <div class="d-flex flex-column align-items-flex-start justify-content-center w-50 post-submit-form">
+            <label for="title">TITLE</label>
+            {{ form.title }}
+            {{ form.media }}
+            <label for="content">CONTENT</label>
+            {{ form.content }}
+            <button style="width: 160px;" class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    </div>
+</div>
