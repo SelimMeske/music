@@ -2,7 +2,6 @@ from django.forms import ModelForm, ClearableFileInput, Textarea
 from django import forms
 from song.models import Song
 from blog.models import BlogPost
-from tinymce.widgets import TinyMCE
 
 class CustomUploadForm(ModelForm):
 
@@ -26,7 +25,6 @@ class CustomBlogPostForm(ModelForm):
         fields = (
             'title',
             'content',
+            'image'
         )
-        widget = {
-            'content': TinyMCE(attrs={'cols':80, 'rows': 30})
-        }
+        exclude = ('published',)

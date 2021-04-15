@@ -184,9 +184,9 @@ body {
     width: 100%;
     height: 100vh;
     z-index: 1000;
-    background: green;
     transition-duration: 0.5s;
     opacity: 1;
+    background: white;
 }
 .blog-back-button {
     cursor: pointer;
@@ -197,4 +197,16 @@ body {
 }
 .post-submit-form > *{
     margin-bottom: 20px;
+}
+.blog-cover {
+    background-image: url("../images/blog-cover.jpg");
+    background-size: cover;
+    height: 250px;
+    color: white;
+}
+.inner-blog-post {
+    margin-top: 25px;
+}
+.blog-post-info-holder {
+    padding-left: 20px;
 }

@@ -1,12 +1,15 @@
 {% include 'base-nav.html' %}
+{% load static %}
 <div class="container">
     <h1>Welcome {{ user|title }}</h1>
 </div>
 <div class="container">
-    <form action='{% url "create_post" %}'>
+    <form enctype="multipart/form-data" method="POST" action='{% url "create_post" %}'>
+        {% csrf_token %}
         <div class="d-flex flex-column align-items-flex-start justify-content-center w-50 post-submit-form">
             <label for="title">TITLE</label>
             {{ form.title }}
+            {{ form.image }}
             {{ form.media }}
             <label for="content">CONTENT</label>
             {{ form.content }}
@@ -14,3 +17,4 @@
     </form>
     </div>
 </div>
+<script src="{% static 'js/blog.handler.js' %}"></script>
