@@ -35,5 +35,6 @@ urlpatterns = [
     path('add-remove-song', favorite_song_view.add_remove_fav, name='add_remove_fav'),
     path('delete-song', create_song_view.delete_song, name='delete_song'),
     path('create-post', blog_views.create_blog_post, name='create_post'),
-    path('get-all-posts', blog_views.get_all_blog_posts, name='get-posts')
+    path('get-all-posts', blog_views.get_all_blog_posts, name='get-posts'),
+    path('post/<int:pk>', blog_views.get_single_post, name='single-post')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

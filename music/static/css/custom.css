@@ -179,6 +179,7 @@ body {
 .menu-nav-item {
     margin-right: 30px;
     text-decoration: none;
+    cursor: pointer;
 }
 .blog-post {
     width: 100%;

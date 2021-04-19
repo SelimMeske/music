@@ -89,4 +89,5 @@ if (back_button_blog){
 let nav_blog_show_button = document.querySelector('.blog-nav-link');
 nav_blog_show_button.addEventListener('click', function(){
     blog_post_page.classList.toggle('open-close-blog');
+    history.pushState({location: 'blog'}, 'To blog');
 });

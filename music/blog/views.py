@@ -11,8 +11,6 @@ def create_blog_post(request):
     if request.method == 'POST':
         form = CustomBlogPostForm(request.POST, request.FILES)
 
-        print(form)
-
         if form.is_valid():
             form.save()
             print('prosla')
@@ -32,3 +30,15 @@ def get_all_blog_posts(request):
     
     serial_response = serializers.serialize('json', all_blog_posts)
     return JsonResponse(serial_response, safe=False)
+
+def get_single_post(request, pk):
+    post = ''
+
+    try:
+        post = BlogPost.objects.all().filter(id=pk)[0]
+    except(error):
+        pass
+
+
+
+    return render(request, 'blog/single-blog-post.html', {'post': post})
