@@ -13,10 +13,8 @@ def create_blog_post(request):
 
         if form.is_valid():
             form.save()
-            print('prosla')
         else:
             form = CustomBlogPostForm()
-            print('nije prosla')
 
     form = CustomBlogPostForm()
     return render(request, 'blog/create-post.html', {'form': form})
@@ -38,7 +36,5 @@ def get_single_post(request, pk):
         post = BlogPost.objects.all().filter(id=pk)[0]
     except(error):
         pass
-
-
 
     return render(request, 'blog/single-blog-post.html', {'post': post})
