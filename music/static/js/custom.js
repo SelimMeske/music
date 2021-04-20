@@ -1,4 +1,8 @@
 let fav_btns = document.querySelectorAll('.fav-btn');
+
+// Set the history to home.
+history.replaceState('home', null);
+
 try {
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     const request = new Request(
@@ -89,5 +93,9 @@ if (back_button_blog){
 let nav_blog_show_button = document.querySelector('.blog-nav-link');
 nav_blog_show_button.addEventListener('click', function(){
     blog_post_page.classList.toggle('open-close-blog');
-    history.pushState({location: 'blog'}, 'To blog');
+    pushHistory('blog');
 });
+
+function pushHistory(loc){
+    history.pushState({location: loc}, null);
+}

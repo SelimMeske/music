@@ -48,7 +48,7 @@ function get_all_posts(){
         
             all_posts_buttons[i].addEventListener('click', function(){
                 get_post(all_posts_buttons[i].id);
-                history.pushState({location: 'post'}, 'This is title');
+                pushHistory('post');
             });
         }
     });
@@ -72,14 +72,10 @@ function get_post(pk){
 window.addEventListener('popstate', e => {
     let current_location = e.state.location;
 
-    console.log(e.state)
-
     if(current_location == 'blog'){
-        blog_post_page.classList.toggle('open-close-blog');
-        console.log('blog');
-    }else if(current_location == 'post'){
         get_all_posts();
-        console.log('Post')
+        return;
     }
+    blog_post_page.classList.toggle('open-close-blog');
 });
 
