@@ -21,7 +21,7 @@ from user_profile import views as profile_view
 from django.conf import settings
 from django.conf.urls.static import static
 from create_song import views as create_song_view
-from favorite_song import views as favorite_song_view
+#from favorite_song import views as favorite_song_view
 from blog import views as blog_views
 
 urlpatterns = [
@@ -32,7 +32,7 @@ urlpatterns = [
     path('logout', auth_views.logout_view, name='logout'),
     path('profile', profile_view.profile_view, name='profile'),
     path('new-song/', create_song_view.create_song, name='create_song'),
-    path('add-remove-song', favorite_song_view.add_remove_fav, name='add_remove_fav'),
+    #path('add-remove-song', favorite_song_view.add_remove_fav, name='add_remove_fav'),
     path('delete-song', create_song_view.delete_song, name='delete_song'),
     path('create-post', blog_views.create_blog_post, name='create_post'),
     path('get-all-posts', blog_views.get_all_blog_posts, name='get-posts'),

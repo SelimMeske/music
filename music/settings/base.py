@@ -30,9 +30,8 @@ INSTALLED_APPS = [
     'user_profile',
     'song',
     'create_song',
-    'favorite_song',
-    'blog',
-    'ckeditor'
+    'ckeditor',
+    'blog'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
