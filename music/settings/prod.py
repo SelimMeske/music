@@ -1,5 +1,6 @@
 import os
 from .base import BASE_DIR
+import logging
 
 SECRET_KEY = os.getenv("__SECRET_KEY")
 
@@ -21,3 +22,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+logging.error('PROD IS RUNNING!!!')
