@@ -1,5 +1,6 @@
 import os
 from .base import BASE_DIR
+import logging
 
 SECRET_KEY = 'secret122312'
 DEBUG = True
@@ -19,4 +20,4 @@ STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'static')
 ]
 
-print('Dev settings are running...')
+logging.error('DEV IS RUNNING!!!')
