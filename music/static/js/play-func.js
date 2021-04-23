@@ -82,6 +82,7 @@ for (i = 0; i < all_buttons.length; i++) {
                 interact: true,
                 waveColor: '#0d6efd',
                 progressColor: '#4B0082',
+                backend: 'MediaElement'
             });
 
             current_url = window.location.protocol + "//" + window.location.host;
