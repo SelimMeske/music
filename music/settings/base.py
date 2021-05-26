@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'create_song',
     'ckeditor',
     'blog',
-    'test'
+    'test',
+    'rest_framework'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -43,6 +44,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 ROOT_URLCONF = 'music.urls'
 TEMPLATES = [
     {
