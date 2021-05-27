@@ -9,14 +9,13 @@ from create_song import views as create_song_view
 #from favorite_song import views as favorite_song_view
 from blog import views as blog_views
 from rest_framework import routers
-from . import views
 
-router = routers.DefaultRouter()
-router.register(r'test', views.SongViewSet)
+#router = routers.DefaultRouter()
+#router.register(r'test', views.SongViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls))
+    path(r'api/', include('music.main_api.urls'))
     #path('', home_view.home_view, name='home'),
     #path('register', auth_views.signup_view, name='register'),
     #path('login', auth_views.login_view, name='login'),
