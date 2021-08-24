@@ -17,7 +17,7 @@ class SongView(APIView):
 
 class SingleSongView(APIView):
 
-    def get(self, request, *args, **kwargs):
-        single_song = Song.objects.get(request.id)
+    def post(self, request, *args, **kwargs):
+        single_song = Song.objects.get(request.POST.get('id'))
         serializer = SongSerializer(single_song, many=True)
         return Response(serializer.data)
